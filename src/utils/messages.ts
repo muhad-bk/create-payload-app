@@ -51,7 +51,7 @@ export function successMessage(projectDir: string, packageManager: string): stri
 
     - cd ${projectDir}
     - ${
-      packageManager === 'yarn' ? 'yarn' : 'npm run'
+      packageManager === 'yarn' ? 'yarn' :  packageManager ==== 'bun' ? 'bun run' :'npm run'
     } dev or follow directions in ${createTerminalLink(
     'README.md',
     `file://${path.resolve(projectDir, 'README.md')}`,
