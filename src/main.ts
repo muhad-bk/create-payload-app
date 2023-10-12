@@ -27,6 +27,7 @@ export class Main {
         '--use-npm': Boolean,
         '--use-yarn': Boolean,
         '--use-pnpm': Boolean,
+        '--use-bun': Boolean,
         '--no-deps': Boolean,
         '--dry-run': Boolean,
         '--beta': Boolean,
@@ -112,8 +113,13 @@ async function getPackageManager(args: CliArgs): Promise<PackageManager> {
     packageManager = 'yarn'
   } else if (args['--use-pnpm']) {
     packageManager = 'pnpm'
+  } } else if (args['--use-bun']) {
+    packageManager = 'bun'
   } else {
     try {
+      if (await commandExists('bun')) {
+        packageManager = 'bun'
+      }
       if (await commandExists('yarn')) {
         packageManager = 'yarn'
       } else if (await commandExists('pnpm')) {
