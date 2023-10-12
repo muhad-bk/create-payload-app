@@ -33,6 +33,7 @@ export async function helpMessage(): Promise<string> {
       --use-npm                     Use npm to install dependencies
       --use-yarn                    Use yarn to install dependencies
       --use-pnpm                    Use pnpm to install dependencies
+      --use-bun                     Use bun to install dependencies
       --no-deps                     Do not install any dependencies
       -h                            Show help
 `
